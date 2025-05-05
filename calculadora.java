@@ -17,7 +17,7 @@ public class calculadora extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Painel de entrada
+       
         JPanel inputPanel = new JPanel(new GridLayout(2, 2));
         inputPanel.add(new JLabel("Primeiro número:"));
         num1Field = new JTextField(10);
@@ -26,7 +26,6 @@ public class calculadora extends JFrame {
         num2Field = new JTextField(10);
         inputPanel.add(num2Field);
 
-        // Painel de operações
         JPanel opPanel = new JPanel(new GridLayout(2, 2));
         addButton = new JButton("+");
         subButton = new JButton("-");
@@ -37,28 +36,24 @@ public class calculadora extends JFrame {
         opPanel.add(mulButton);
         opPanel.add(divButton);
 
-        // Botão calcular
         calculateButton = new JButton("Calcular");
         JPanel calcPanel = new JPanel();
         calcPanel.add(calculateButton);
 
-        // Adicionar componentes ao frame
         add(inputPanel, BorderLayout.NORTH);
         add(opPanel, BorderLayout.CENTER);
         add(calcPanel, BorderLayout.SOUTH);
 
-        // Configurar listeners para os botões de operação
         addButton.addActionListener(e -> currentOperation = "+");
         subButton.addActionListener(_ -> currentOperation = "-");
         mulButton.addActionListener(e -> currentOperation = "*");
         divButton.addActionListener(e -> currentOperation = "/");
 
-        // Listener para o botão calcular
         calculateButton.addActionListener(e -> calcular());
 
         pack();
-        setLocationRelativeTo(null); // Centraliza a janela
-        setVisible(true); // Torna a janela visível
+        setLocationRelativeTo(null);
+        setVisible(true); 
     }
 
     public calculadora(JButton addButton, JButton calculateButton, JButton divButton, JButton mulButton, JTextField num1Field, JTextField num2Field, JButton subButton) throws HeadlessException {
